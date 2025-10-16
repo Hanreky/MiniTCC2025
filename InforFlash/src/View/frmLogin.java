@@ -47,6 +47,9 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.png"))); // NOI18N
         jLabel1.setText(" ");
 
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         jLabel2.setText("Digite o seu usuário:");
 
@@ -140,15 +143,20 @@ public class frmLogin extends javax.swing.JFrame {
             ConLogin conlogin = new ConLogin();
             Login login = new Login();
 
+            
             login.setSenha(senha);
             login.setUsuario(usuario);
             
             login = conlogin.entrar(login);
 
             if (login != null) {
-                JOptionPane.showMessageDialog(null, "Deu certo prr");
+                JOptionPane.showMessageDialog(null, String.format("Seja bem vindo(a), %s!", login.getUsuario()));
+                frmMenu menu = new frmMenu();
+                this.dispose();
+                menu.setVisible(true);
+                menu.setLocationRelativeTo(null);
             } else {    
-                JOptionPane.showMessageDialog(null, "Vtnc");
+                JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!", "Mensagem", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed

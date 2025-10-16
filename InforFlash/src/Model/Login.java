@@ -7,7 +7,7 @@ package Model;
 public class Login {
     
     private String usuario, senha;
-    private boolean loginValidado = false;
+    private static boolean loginValidado = false;
 
     public String getUsuario() {
         return usuario;
@@ -30,6 +30,6 @@ public class Login {
     }
 
     public void setLoginValidado(boolean loginValidado) {
-        this.loginValidado = loginValidado;
+        Login.loginValidado = loginValidado;
     }
 }
