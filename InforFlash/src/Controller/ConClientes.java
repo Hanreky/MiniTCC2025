@@ -57,4 +57,99 @@ public class ConClientes {
         }
         return lista;
     }
+
+    public Clientes pesquisarCPF(String cpf) {
+        String sql = "SELECT * "
+                + "FROM TBCLIENTE "
+                + "WHERE CPFCLIENTE = ?";
+        try {
+
+            PreparedStatement psmt = conexao.conectar().prepareStatement(sql);
+            psmt.setString(1, cpf);
+            ResultSet rs = psmt.executeQuery();
+
+            Clientes cliente = new Clientes();
+
+            while (rs.next()) {
+                cliente.setCodigo(rs.getInt("IDCLIENTE"));
+                cliente.setNome(rs.getString("NOMECLIENTE"));
+                cliente.setTelefone(rs.getString("CELCLIENTE"));
+                cliente.setCpf(rs.getString("CPFCLIENTE"));
+                cliente.setEmail(rs.getString("EMAILCLIENTE"));
+            }
+
+            return cliente;
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+
+        }
+    }
+
+    public void editar(Clientes cliente) {
+        String sql = "UPDATE TBCLIENTE "
+                + " SET NOMECLIENTE = ?,CELCLIENTE = ?, CPFCLIENTE = ?, EMAILCLIENTE = ? "
+                + " WHERE IDCLIENTE = ?";
+
+        try {
+            PreparedStatement psmt = conexao.conectar().prepareStatement(sql);
+
+            psmt.setString(1, cliente.getNome());
+            psmt.setString(2, cliente.getTelefone());
+            psmt.setString(3, cliente.getCpf());
+            psmt.setString(4, cliente.getEmail());
+            psmt.setInt(5, cliente.getCodigo());
+            psmt.executeUpdate();
+            conexao.desconectar();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+    }
+
+    public Clientes pegarNome(int codigo) {
+        String sql = "SELECT NOMECLIENTE FROM TBCLIENTE "
+                + " WHERE IDCLIENTE = ?";
+
+        try {
+            Clientes cliente = new Clientes();
+
+            PreparedStatement psmt = conexao.conectar().prepareStatement(sql);
+            psmt.setInt(1, codigo);
+
+            ResultSet rs = psmt.executeQuery();
+            while (rs.next()) {
+                cliente.setNome(rs.getString("NOMECLIENTE"));
+            }
+            
+            conexao.desconectar();
+            
+            return cliente;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+
+    }
+
+    public void excluir(int codigo) {
+        String sql = "DELETE FROM TBCLIENTE"
+                + " WHERE IDCLIENTE = ?";
+
+        try {
+
+            PreparedStatement psmt = conexao.conectar().prepareStatement(sql);
+            psmt.setInt(1, codigo);
+            psmt.executeUpdate();
+            conexao.desconectar();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
 }
