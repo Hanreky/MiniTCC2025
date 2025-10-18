@@ -6,7 +6,8 @@ package Model;
  */
 public class Login {
     
-    private String usuario, senha;
+    private static String usuario;
+    private String senha;
     private static boolean loginValidado = false;
 
     public String getUsuario() {
@@ -14,7 +15,7 @@ public class Login {
     }
 
     public void setUsuario(String usuario) {
-        this.usuario = usuario;
+        Login.usuario = usuario;
     }
 
     public String getSenha() {

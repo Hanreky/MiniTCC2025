@@ -27,7 +27,7 @@ public class ConLogin {
             
             ResultSet rs = psmt.executeQuery();
             
-            if(rs.next()){ //?? mudar
+            if(rs.next()){
                 
                 login.setSenha(rs.getString("SENHA"));
                 login.setUsuario(rs.getString("USUARIO"));
@@ -37,7 +37,7 @@ public class ConLogin {
                 return login;
             }
             else{
-                return null; //nao 8=====D
+                return null;
             }
             
         } catch (SQLException e) {

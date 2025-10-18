@@ -67,20 +67,19 @@ public class frmClientes extends javax.swing.JFrame {
             txtEmail.setText(cliente.getEmail());
 
             if (txtCpf.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Cliente não encontrado.");
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
-    public void validar(){
-        if (txtNome.getText().trim().isEmpty() || txtCpf.getText().trim().isEmpty() || txtTelefone.getText().trim().isEmpty()){
+
+    public void validar() {
+        if (txtNome.getText().trim().isEmpty() || txtCpf.getText().trim().isEmpty() || txtTelefone.getText().trim().isEmpty()) {
             txtObrNome.setText("* Obigatório");
             txtObrTel.setText("* Obigatório");
             txtObrCpf.setText("* Obigatório");
-        }
-        else{
+        } else {
             txtObrNome.setText("");
             txtObrTel.setText("");
             txtObrCpf.setText("");
@@ -93,7 +92,7 @@ public class frmClientes extends javax.swing.JFrame {
         txtTelefone.setText("");
         txtCpf.setText("");
         txtEmail.setText("");
-        
+
         validar();
     }
 
@@ -127,10 +126,16 @@ public class frmClientes extends javax.swing.JFrame {
         txtObrNome = new javax.swing.JLabel();
         txtObrTel = new javax.swing.JLabel();
         txtObrCpf = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPanel1FocusLost(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         jLabel1.setText("Código:");
@@ -239,14 +244,34 @@ public class frmClientes extends javax.swing.JFrame {
 
         txtTelefone.setBackground(new java.awt.Color(204, 204, 255));
         txtTelefone.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtTelefone.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTelefoneFocusLost(evt);
+            }
+        });
         txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefoneActionPerformed(evt);
             }
         });
+        txtTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTelefoneKeyPressed(evt);
+            }
+        });
 
         txtCpf.setBackground(new java.awt.Color(204, 204, 255));
         txtCpf.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtCpf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCpfFocusLost(evt);
+            }
+        });
+        txtCpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCpfKeyPressed(evt);
+            }
+        });
 
         txtEmail.setBackground(new java.awt.Color(204, 204, 255));
         txtEmail.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
@@ -287,12 +312,23 @@ public class frmClientes extends javax.swing.JFrame {
         txtObrCpf.setForeground(new java.awt.Color(255, 0, 51));
         txtObrCpf.setText("* Obrigatório");
 
+        jButton1.setBackground(new java.awt.Color(204, 255, 255));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        jButton1.setText("X");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnEditar)
@@ -333,22 +369,27 @@ public class frmClientes extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton1)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -370,15 +411,15 @@ public class frmClientes extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnLimpar)
                             .addComponent(btnCadastrar))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEditar)
-                            .addComponent(btnExcluir))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnExcluir))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -404,20 +445,26 @@ public class frmClientes extends javax.swing.JFrame {
             if (txtCod.getText().trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Escolha um cliente!", "Aviso", JOptionPane.WARNING_MESSAGE);
             } else {
-                ConClientes conCliente = new ConClientes();
-                Clientes cliente = new Clientes();
+                int op = JOptionPane.showConfirmDialog(null, String.format("Deseja mesmo excluir %s?", txtNome.getText().trim()), "Confirme", JOptionPane.YES_NO_OPTION);
+                if (op == JOptionPane.YES_OPTION) {
+                    ConClientes conCliente = new ConClientes();
+                    Clientes cliente = new Clientes();
 
-                int codigo = Integer.parseInt(txtCod.getText());
+                    int codigo = Integer.parseInt(txtCod.getText());
 
-                cliente = conCliente.pegarNome(codigo);
+                    cliente = conCliente.pegarNome(codigo);
 
-                conCliente.excluir(codigo);
+                    conCliente.excluir(codigo);
 
-                JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " excluido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " excluido.", "Aviso", JOptionPane.WARNING_MESSAGE);
 
-                limpar();
+                    limpar();
 
-                listar();
+                    listar();
+
+                    validar();
+                }
+
             }
 
         } catch (Exception e) {
@@ -432,23 +479,33 @@ public class frmClientes extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         try {
             if (txtNome.getText().trim().isEmpty() || txtCpf.getText().trim().isEmpty() || txtTelefone.getText().trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha os campos obrigatórios! ");
+                JOptionPane.showMessageDialog(null, "Preencha os campos obrigatórios! ", "Aviso", JOptionPane.WARNING_MESSAGE);
             } else {
-                Clientes cliente = new Clientes();
-                ConClientes conCliente = new ConClientes();
 
-                cliente.setNome(txtNome.getText());
-                cliente.setTelefone(txtTelefone.getText());
-                cliente.setCpf(txtCpf.getText());
-                cliente.setEmail(txtEmail.getText());
-                conCliente.cadastrar(cliente);
+                int op = JOptionPane.showConfirmDialog(null, String.format("Deseja mesmo cadastrar %s?", txtNome.getText().trim()), "Confirme", JOptionPane.YES_NO_OPTION);
+                if (op == JOptionPane.YES_OPTION) {
+                    Clientes cliente = new Clientes();
+                    ConClientes conCliente = new ConClientes();
 
-                JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " cadastrado com sucesso!");
+                    cliente.setNome(txtNome.getText().trim());
+                    cliente.setTelefone(txtTelefone.getText().trim());
+                    cliente.setCpf(txtCpf.getText().trim());
 
-                limpar();
+                    if (txtEmail.getText().trim().isEmpty()) {
+                        cliente.setEmail(" ");
+                    } else {
+                        cliente.setEmail(txtEmail.getText().trim());
+                    }
 
-                listar();
+                    conCliente.cadastrar(cliente);
 
+                    JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " cadastrado com sucesso!");
+
+                    limpar();
+
+                    listar();
+
+                }
             }
 
         } catch (Exception e) {
@@ -457,7 +514,11 @@ public class frmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        limpar();
+        int op = JOptionPane.showConfirmDialog(null, "Deseja mesmo limpar todos os campos?", "Confirme", JOptionPane.YES_NO_OPTION);
+        if (op == JOptionPane.YES_OPTION) {
+            limpar();
+            validar();
+        }
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -466,6 +527,12 @@ public class frmClientes extends javax.swing.JFrame {
         String cpf = txtCpf.getText().trim();
         pesquisarCpf(cpf);
 
+        validar();
+
+        if (txtCod.getText().trim().isEmpty() || txtCod.getText().trim().equals("0")) {
+            limpar();
+            validar();
+        }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void tbClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClientesMouseClicked
@@ -482,16 +549,24 @@ public class frmClientes extends javax.swing.JFrame {
             Clientes cliente = new Clientes();
             ConClientes concliente = new ConClientes();
 
-            cliente.setCodigo(Integer.parseInt(txtCod.getText()));
-            cliente.setNome(txtNome.getText());
-            cliente.setTelefone(txtTelefone.getText());
-            cliente.setCpf(txtCpf.getText());
-            cliente.setEmail(txtEmail.getText());
-            concliente.editar(cliente);
+            if (txtCod.getText().trim().isEmpty() || txtCod.getText().trim().equals("0")) {
+                JOptionPane.showMessageDialog(null, "Cliente não selecionado!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            } else {
+                int op = JOptionPane.showConfirmDialog(null, String.format("Deseja mesmo editar %s?", txtNome.getText().trim()), "Confirme", JOptionPane.YES_NO_OPTION);
+                if (op == JOptionPane.YES_OPTION) {
+                    cliente.setCodigo(Integer.parseInt(txtCod.getText()));
+                    cliente.setNome(txtNome.getText());
+                    cliente.setTelefone(txtTelefone.getText());
+                    cliente.setCpf(txtCpf.getText());
+                    cliente.setEmail(txtEmail.getText());
+                    concliente.editar(cliente);
 
-            JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " Atualizado com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " Atualizado com sucesso!");
 
-            listar();
+                    listar();
+                    limpar();
+                }
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -510,21 +585,66 @@ public class frmClientes extends javax.swing.JFrame {
 
     private void txtNomeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtNomeInputMethodTextChanged
 
-        txtObrNome.setText("");
-
     }//GEN-LAST:event_txtNomeInputMethodTextChanged
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        txtNome.selectAll();
+
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
         if (txtNome.getText().trim().isEmpty()) {
             txtObrNome.setText("* Obrigatório");
         } else {
-                txtObrNome.setText("");
+            txtObrNome.setText("");
         }
     }//GEN-LAST:event_txtNomeFocusLost
+
+    private void txtTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefoneKeyPressed
+        if (txtTelefone.getText().trim().isEmpty()) {
+            txtObrTel.setText("* Obrigatório");
+        } else {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                txtObrTel.setText("");
+                txtCpf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_txtTelefoneKeyPressed
+
+    private void txtCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCpfFocusLost
+        if (txtCpf.getText().trim().isEmpty()) {
+            txtObrCpf.setText("* Obrigatório");
+        } else {
+            txtObrCpf.setText("");
+        }
+    }//GEN-LAST:event_txtCpfFocusLost
+
+    private void txtCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfKeyPressed
+        if (txtCpf.getText().trim().isEmpty()) {
+            txtObrCpf.setText("* Obrigatório");
+        } else {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                txtObrCpf.setText("");
+                txtEmail.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_txtCpfKeyPressed
+
+    private void jPanel1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel1FocusLost
+        validar();
+    }//GEN-LAST:event_jPanel1FocusLost
+
+    private void txtTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefoneFocusLost
+        if (txtTelefone.getText().trim().isEmpty()) {
+            txtObrTel.setText("* Obrigatório");
+        } else {
+            txtObrTel.setText("");
+        }
+    }//GEN-LAST:event_txtTelefoneFocusLost
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -567,6 +687,7 @@ public class frmClientes extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
