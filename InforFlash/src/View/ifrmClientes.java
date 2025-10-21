@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package View;
 
@@ -14,16 +14,15 @@ import javax.swing.table.TableModel;
 
 /**
  *
- * @author LABINFO
+ * @author User
  */
-public class frmClientes extends javax.swing.JFrame {
+public class ifrmClientes extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form frmClientes
+     * Creates new form NewJInternalFrame
      */
-    public frmClientes() {
+    public ifrmClientes() {
         initComponents();
-        setLocationRelativeTo(null);
         listar();
     }
 
@@ -107,41 +106,91 @@ public class frmClientes extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        btnCadastrar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbClientes = new javax.swing.JTable();
         txtCod = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
-        txtTelefone = new javax.swing.JTextField();
-        txtCpf = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
-        btnLimpar = new javax.swing.JButton();
         txtObrNome = new javax.swing.JLabel();
         txtObrTel = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtCpf = new javax.swing.JTextField();
         txtObrCpf = new javax.swing.JLabel();
+        btnPesquisar = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnLimpar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbClientes = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 255));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
-        jPanel1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jPanel1FocusLost(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         jLabel1.setText("Código:");
 
+        txtCod.setBackground(new java.awt.Color(204, 204, 255));
+        txtCod.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtCod.setEnabled(false);
+
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         jLabel2.setText("Nome:");
+
+        txtNome.setBackground(new java.awt.Color(204, 204, 255));
+        txtNome.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtNome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNomeFocusLost(evt);
+            }
+        });
+        txtNome.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtNomeInputMethodTextChanged(evt);
+            }
+        });
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeKeyPressed(evt);
+            }
+        });
+
+        txtObrNome.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtObrNome.setForeground(new java.awt.Color(255, 0, 51));
+        txtObrNome.setText("* Obrigatório");
+
+        txtObrTel.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtObrTel.setForeground(new java.awt.Color(255, 0, 51));
+        txtObrTel.setText("* Obrigatório");
+
+        txtTelefone.setBackground(new java.awt.Color(204, 204, 255));
+        txtTelefone.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtTelefone.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTelefoneFocusLost(evt);
+            }
+        });
+        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefoneActionPerformed(evt);
+            }
+        });
+        txtTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTelefoneKeyPressed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         jLabel3.setText("Telefone:");
@@ -149,16 +198,65 @@ public class frmClientes extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         jLabel4.setText("CPF:");
 
+        txtCpf.setBackground(new java.awt.Color(204, 204, 255));
+        txtCpf.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtCpf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCpfFocusLost(evt);
+            }
+        });
+        txtCpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCpfKeyPressed(evt);
+            }
+        });
+
+        txtObrCpf.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtObrCpf.setForeground(new java.awt.Color(255, 0, 51));
+        txtObrCpf.setText("* Obrigatório");
+
+        btnPesquisar.setBackground(new java.awt.Color(204, 255, 255));
+        btnPesquisar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisar.png"))); // NOI18N
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+
+        txtEmail.setBackground(new java.awt.Color(204, 204, 255));
+        txtEmail.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailKeyPressed(evt);
+            }
+        });
+
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         jLabel5.setText("Email:");
 
-        btnCadastrar.setBackground(new java.awt.Color(204, 255, 255));
-        btnCadastrar.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/adicionar.png"))); // NOI18N
-        btnCadastrar.setText("Cadastrar");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpar.setBackground(new java.awt.Color(204, 255, 255));
+        btnLimpar.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/limpar.png"))); // NOI18N
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
+                btnLimparActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setBackground(new java.awt.Color(204, 255, 255));
+        btnEditar.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/editar.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
             }
         });
 
@@ -172,13 +270,13 @@ public class frmClientes extends javax.swing.JFrame {
             }
         });
 
-        btnEditar.setBackground(new java.awt.Color(204, 255, 255));
-        btnEditar.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/editar.png"))); // NOI18N
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setBackground(new java.awt.Color(204, 255, 255));
+        btnCadastrar.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/adicionar.png"))); // NOI18N
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
 
@@ -207,115 +305,6 @@ public class frmClientes extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tbClientes);
-        if (tbClientes.getColumnModel().getColumnCount() > 0) {
-            tbClientes.getColumnModel().getColumn(0).setResizable(false);
-            tbClientes.getColumnModel().getColumn(1).setResizable(false);
-            tbClientes.getColumnModel().getColumn(2).setResizable(false);
-        }
-
-        txtCod.setBackground(new java.awt.Color(204, 204, 255));
-        txtCod.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtCod.setEnabled(false);
-
-        txtNome.setBackground(new java.awt.Color(204, 204, 255));
-        txtNome.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtNome.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNomeFocusLost(evt);
-            }
-        });
-        txtNome.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                txtNomeInputMethodTextChanged(evt);
-            }
-        });
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
-        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNomeKeyPressed(evt);
-            }
-        });
-
-        txtTelefone.setBackground(new java.awt.Color(204, 204, 255));
-        txtTelefone.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtTelefone.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtTelefoneFocusLost(evt);
-            }
-        });
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
-            }
-        });
-        txtTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtTelefoneKeyPressed(evt);
-            }
-        });
-
-        txtCpf.setBackground(new java.awt.Color(204, 204, 255));
-        txtCpf.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtCpf.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCpfFocusLost(evt);
-            }
-        });
-        txtCpf.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtCpfKeyPressed(evt);
-            }
-        });
-
-        txtEmail.setBackground(new java.awt.Color(204, 204, 255));
-        txtEmail.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
-        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtEmailKeyPressed(evt);
-            }
-        });
-
-        btnPesquisar.setBackground(new java.awt.Color(204, 255, 255));
-        btnPesquisar.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
-        btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisar.png"))); // NOI18N
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarActionPerformed(evt);
-            }
-        });
-
-        btnLimpar.setBackground(new java.awt.Color(204, 255, 255));
-        btnLimpar.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/limpar.png"))); // NOI18N
-        btnLimpar.setText("Limpar");
-        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparActionPerformed(evt);
-            }
-        });
-
-        txtObrNome.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtObrNome.setForeground(new java.awt.Color(255, 0, 51));
-        txtObrNome.setText("* Obrigatório");
-
-        txtObrTel.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtObrTel.setForeground(new java.awt.Color(255, 0, 51));
-        txtObrTel.setText("* Obrigatório");
-
-        txtObrCpf.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        txtObrCpf.setForeground(new java.awt.Color(255, 0, 51));
-        txtObrCpf.setText("* Obrigatório");
 
         jButton1.setBackground(new java.awt.Color(204, 255, 255));
         jButton1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
@@ -331,8 +320,7 @@ public class frmClientes extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -379,15 +367,18 @@ public class frmClientes extends javax.swing.JFrame {
                                         .addGap(6, 6, 6)
                                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jButton1)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(19, 19, 19)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -430,19 +421,146 @@ public class frmClientes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
+        if (txtNome.getText().trim().isEmpty()) {
+            txtObrNome.setText("* Obrigatório");
+        } else {
+            txtObrNome.setText("");
+        }
+    }//GEN-LAST:event_txtNomeFocusLost
+
+    private void txtNomeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtNomeInputMethodTextChanged
+
+    }//GEN-LAST:event_txtNomeInputMethodTextChanged
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
+        if (txtNome.getText().trim().isEmpty()) {
+            txtObrNome.setText("* Obrigatório");
+        } else {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                txtObrNome.setText("");
+                txtTelefone.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_txtNomeKeyPressed
+
+    private void txtTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefoneFocusLost
+        if (txtTelefone.getText().trim().isEmpty()) {
+            txtObrTel.setText("* Obrigatório");
+        } else {
+            txtObrTel.setText("");
+        }
+    }//GEN-LAST:event_txtTelefoneFocusLost
+
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
+
+    private void txtTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefoneKeyPressed
+        if (txtTelefone.getText().trim().isEmpty()) {
+            txtObrTel.setText("* Obrigatório");
+        } else {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                txtObrTel.setText("");
+                txtCpf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_txtTelefoneKeyPressed
+
+    private void txtCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCpfFocusLost
+        if (txtCpf.getText().trim().isEmpty()) {
+            txtObrCpf.setText("* Obrigatório");
+        } else {
+            txtObrCpf.setText("");
+        }
+    }//GEN-LAST:event_txtCpfFocusLost
+
+    private void txtCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfKeyPressed
+        if (txtCpf.getText().trim().isEmpty()) {
+            txtObrCpf.setText("* Obrigatório");
+        } else {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                txtObrCpf.setText("");
+                txtEmail.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_txtCpfKeyPressed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+
+        Clientes cliente = new Clientes();
+        String cpf = txtCpf.getText().trim();
+        pesquisarCpf(cpf);
+
+        validar();
+
+        if (txtCod.getText().trim().isEmpty() || txtCod.getText().trim().equals("0")) {
+            limpar();
+            validar();
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailKeyPressed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        int op = JOptionPane.showConfirmDialog(null, "Deseja mesmo limpar todos os campos?", "Confirme", JOptionPane.YES_NO_OPTION);
+        if (op == JOptionPane.YES_OPTION) {
+            limpar();
+            validar();
+        }
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        try {
+            Clientes cliente = new Clientes();
+            ConClientes concliente = new ConClientes();
+
+            if (txtCod.getText().trim().isEmpty() || txtCod.getText().trim().equals("0")) {
+                JOptionPane.showMessageDialog(null, "Cliente não selecionado!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            } else {
+                int op = JOptionPane.showConfirmDialog(null, String.format("Deseja mesmo editar %s?", txtNome.getText().trim()), "Confirme", JOptionPane.YES_NO_OPTION);
+                if (op == JOptionPane.YES_OPTION) {
+                    cliente.setCodigo(Integer.parseInt(txtCod.getText()));
+                    cliente.setNome(txtNome.getText());
+                    cliente.setTelefone(txtTelefone.getText());
+                    cliente.setCpf(txtCpf.getText());
+                    cliente.setEmail(txtEmail.getText());
+                    concliente.editar(cliente);
+
+                    JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " Atualizado com sucesso!");
+
+                    listar();
+                    limpar();
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         try {
@@ -475,10 +593,6 @@ public class frmClientes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-
-    }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         try {
@@ -517,28 +631,6 @@ public class frmClientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        int op = JOptionPane.showConfirmDialog(null, "Deseja mesmo limpar todos os campos?", "Confirme", JOptionPane.YES_NO_OPTION);
-        if (op == JOptionPane.YES_OPTION) {
-            limpar();
-            validar();
-        }
-    }//GEN-LAST:event_btnLimparActionPerformed
-
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-
-        Clientes cliente = new Clientes();
-        String cpf = txtCpf.getText().trim();
-        pesquisarCpf(cpf);
-
-        validar();
-
-        if (txtCod.getText().trim().isEmpty() || txtCod.getText().trim().equals("0")) {
-            limpar();
-            validar();
-        }
-    }//GEN-LAST:event_btnPesquisarActionPerformed
-
     private void tbClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClientesMouseClicked
         int sel = tbClientes.getSelectedRow();
         TableModel modelo = tbClientes.getModel();
@@ -548,146 +640,11 @@ public class frmClientes extends javax.swing.JFrame {
         validar();
     }//GEN-LAST:event_tbClientesMouseClicked
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        try {
-            Clientes cliente = new Clientes();
-            ConClientes concliente = new ConClientes();
-
-            if (txtCod.getText().trim().isEmpty() || txtCod.getText().trim().equals("0")) {
-                JOptionPane.showMessageDialog(null, "Cliente não selecionado!", "Aviso", JOptionPane.WARNING_MESSAGE);
-            } else {
-                int op = JOptionPane.showConfirmDialog(null, String.format("Deseja mesmo editar %s?", txtNome.getText().trim()), "Confirme", JOptionPane.YES_NO_OPTION);
-                if (op == JOptionPane.YES_OPTION) {
-                    cliente.setCodigo(Integer.parseInt(txtCod.getText()));
-                    cliente.setNome(txtNome.getText());
-                    cliente.setTelefone(txtTelefone.getText());
-                    cliente.setCpf(txtCpf.getText());
-                    cliente.setEmail(txtEmail.getText());
-                    concliente.editar(cliente);
-
-                    JOptionPane.showMessageDialog(null, "Cliente " + cliente.getNome() + " Atualizado com sucesso!");
-
-                    listar();
-                    limpar();
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
-        if (txtNome.getText().trim().isEmpty()) {
-            txtObrNome.setText("* Obrigatório");
-        } else {
-            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                txtObrNome.setText("");
-                txtTelefone.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_txtNomeKeyPressed
-
-    private void txtNomeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtNomeInputMethodTextChanged
-
-    }//GEN-LAST:event_txtNomeInputMethodTextChanged
-
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-
-    }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
-        if (txtNome.getText().trim().isEmpty()) {
-            txtObrNome.setText("* Obrigatório");
-        } else {
-            txtObrNome.setText("");
-        }
-    }//GEN-LAST:event_txtNomeFocusLost
-
-    private void txtTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefoneKeyPressed
-        if (txtTelefone.getText().trim().isEmpty()) {
-            txtObrTel.setText("* Obrigatório");
-        } else {
-            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                txtObrTel.setText("");
-                txtCpf.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_txtTelefoneKeyPressed
-
-    private void txtCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCpfFocusLost
-        if (txtCpf.getText().trim().isEmpty()) {
-            txtObrCpf.setText("* Obrigatório");
-        } else {
-            txtObrCpf.setText("");
-        }
-    }//GEN-LAST:event_txtCpfFocusLost
-
-    private void txtCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfKeyPressed
-        if (txtCpf.getText().trim().isEmpty()) {
-            txtObrCpf.setText("* Obrigatório");
-        } else {
-            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                txtObrCpf.setText("");
-                txtEmail.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_txtCpfKeyPressed
-
-    private void jPanel1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel1FocusLost
-        validar();
-    }//GEN-LAST:event_jPanel1FocusLost
-
-    private void txtTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefoneFocusLost
-        if (txtTelefone.getText().trim().isEmpty()) {
-            txtObrTel.setText("* Obrigatório");
-        } else {
-            txtObrTel.setText("");
-        }
-    }//GEN-LAST:event_txtTelefoneFocusLost
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailKeyPressed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmClientes().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;

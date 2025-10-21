@@ -4,8 +4,10 @@
  */
 package View;
 
-import Model.*;
-import javax.swing.JOptionPane;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
@@ -14,13 +16,26 @@ import javax.swing.JOptionPane;
 public class frmMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmMenu
+     * Creates new form NewJFrame
      */
     public frmMenu() {
         initComponents();
         setLocationRelativeTo(null);
-        Login login = new Login();
     }
+
+    Integer tamPanel = 30;
+
+    Timer timer = new Timer(50, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (tamPanel > 120) {
+                timer.stop();
+            } else {
+                tamPanel += 30;
+                jPanel3.setSize(jPanel3.getWidth(), tamPanel);
+            }
+        }
+    });
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,107 +46,206 @@ public class frmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        btgGerenciar = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        menuClientes = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenuItem4.setText("jMenuItem4");
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        tbtnGerenciar = new javax.swing.JToggleButton();
+        tbtnClientes = new javax.swing.JToggleButton();
+        tbtnPedidos = new javax.swing.JToggleButton();
+        tbtnServicos = new javax.swing.JToggleButton();
+        desktopPane = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jLabel1)
-                .addContainerGap(127, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+            .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 153, 255));
 
-        jMenu2.setText("Gerenciar");
-
-        menuClientes.setText("Clientes");
-        menuClientes.addActionListener(new java.awt.event.ActionListener() {
+        tbtnGerenciar.setBackground(new java.awt.Color(0, 153, 255));
+        tbtnGerenciar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tbtnGerenciar.setText("Gerenciar");
+        tbtnGerenciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuClientesActionPerformed(evt);
+                tbtnGerenciarActionPerformed(evt);
             }
         });
-        jMenu2.add(menuClientes);
 
-        jMenuItem2.setText("Pedidos");
-        jMenu2.add(jMenuItem2);
-
-        jMenuItem3.setText("Serviços");
-        jMenu2.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu1.setText("Conta");
-
-        jMenuItem5.setText("Configurações");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        btgGerenciar.add(tbtnClientes);
+        tbtnClientes.setText("Clientes");
+        tbtnClientes.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        tbtnClientes.setPreferredSize(new java.awt.Dimension(43, 23));
+        tbtnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                tbtnClientesActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/sair.png"))); // NOI18N
-        jMenuItem6.setText("Sair");
-        jMenu1.add(jMenuItem6);
+        btgGerenciar.add(tbtnPedidos);
+        tbtnPedidos.setText("Pedidos");
+        tbtnPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnPedidosActionPerformed(evt);
+            }
+        });
 
-        jMenuBar1.add(jMenu1);
+        btgGerenciar.add(tbtnServicos);
+        tbtnServicos.setText("Serviços");
+        tbtnServicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnServicosActionPerformed(evt);
+            }
+        });
 
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tbtnGerenciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tbtnClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnPedidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbtnServicos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(tbtnGerenciar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tbtnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tbtnPedidos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tbtnServicos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
+        desktopPane.setLayout(desktopPaneLayout);
+        desktopPaneLayout.setHorizontalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 884, Short.MAX_VALUE)
+        );
+        desktopPaneLayout.setVerticalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 437, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(desktopPane))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(desktopPane)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuClientesActionPerformed
-        frmClientes novoFrm = new frmClientes();
-        novoFrm.setVisible(true);
-        novoFrm.setLocationRelativeTo(null);
-    }//GEN-LAST:event_menuClientesActionPerformed
+    private void tbtnGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnGerenciarActionPerformed
+        if (!tbtnGerenciar.isSelected()) {
+            timer.start();
+        } else {
+            timer.stop();
+            tamPanel = 30;
+            jPanel3.setSize(jPanel3.getWidth(), 30);
+        }
+    }//GEN-LAST:event_tbtnGerenciarActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void tbtnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnClientesActionPerformed
+
+        desktopPane.removeAll();
+        desktopPane.updateUI();
+        if (tbtnClientes.isSelected()) {
+            
+            desktopPane.removeAll();
+
+            ifrmClientes ifrm = new ifrmClientes();
+
+            Dimension desktopTamanho = desktopPane.getSize();
+            Dimension ifrmTamanho = ifrm.getSize();
+
+            int x = (desktopTamanho.width - ifrmTamanho.width) / 2;
+            int y = (desktopTamanho.height - ifrmTamanho.height) / 2;
+
+            ifrm.setLocation(x, y);
+
+            desktopPane.add(ifrm);
+
+            ifrm.setVisible(true);
+        } else {
+            desktopPane.removeAll();
+            desktopPane.updateUI();
+        }
+    }//GEN-LAST:event_tbtnClientesActionPerformed
+
+    private void tbtnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnPedidosActionPerformed
+        desktopPane.removeAll();
+        desktopPane.updateUI();
+    }//GEN-LAST:event_tbtnPedidosActionPerformed
+
+    private void tbtnServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnServicosActionPerformed
+        desktopPane.removeAll();
+        desktopPane.updateUI();
+        
+        if (tbtnServicos.isSelected()) {
+            
+            desktopPane.removeAll();
+
+            ifrmServicos ifrm = new ifrmServicos();
+
+            Dimension desktopTamanho = desktopPane.getSize();
+            Dimension ifrmTamanho = ifrm.getSize();
+
+            int x = (desktopTamanho.width - ifrmTamanho.width) / 2;
+            int y = (desktopTamanho.height - ifrmTamanho.height) / 2;
+
+            ifrm.setLocation(x, y);
+
+            desktopPane.add(ifrm);
+
+            ifrm.setVisible(true);
+        }
+    }//GEN-LAST:event_tbtnServicosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,41 +273,25 @@ public class frmMenu extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(frmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
-                /*
-                Login login = new Login();
-                if (!login.isLoginValidado()) {
-                    frmLogin telalogin = new frmLogin();
-                    new frmMenu().setVisible(false);
-                    new frmMenu().dispose();
-                    telalogin.setVisible(true);
-                    telalogin.setLocationRelativeTo(null);
-                    JOptionPane.showMessageDialog(null, "Faça o login antes de acessar esta tela!", "", JOptionPane.WARNING_MESSAGE);
-
-                } else {*/
-                    new frmMenu().setVisible(true);
-                //}
-                
+                new frmMenu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.ButtonGroup btgGerenciar;
+    private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenuItem menuClientes;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JToggleButton tbtnClientes;
+    private javax.swing.JToggleButton tbtnGerenciar;
+    private javax.swing.JToggleButton tbtnPedidos;
+    private javax.swing.JToggleButton tbtnServicos;
     // End of variables declaration//GEN-END:variables
 }

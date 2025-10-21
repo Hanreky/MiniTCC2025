@@ -7,6 +7,7 @@ package View;
 import javax.swing.JOptionPane;
 import Model.*;
 import Controller.*;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -56,6 +57,11 @@ public class frmLogin extends javax.swing.JFrame {
         txtUsuario.setBackground(new java.awt.Color(204, 204, 255));
         txtUsuario.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
         txtUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI", 1, 18))); // NOI18N
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+        });
 
         btnEntrar.setBackground(new java.awt.Color(204, 255, 255));
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -71,6 +77,11 @@ public class frmLogin extends javax.swing.JFrame {
         pssSenha.setBackground(new java.awt.Color(204, 204, 255));
         pssSenha.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
         pssSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 18))); // NOI18N
+        pssSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pssSenhaKeyPressed(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/senha.png"))); // NOI18N
@@ -173,10 +184,9 @@ public class frmLogin extends javax.swing.JFrame {
             ConLogin conlogin = new ConLogin();
             Login login = new Login();
 
-            
             login.setSenha(senha);
             login.setUsuario(usuario);
-            
+
             login = conlogin.entrar(login);
 
             if (login != null) {
@@ -185,22 +195,33 @@ public class frmLogin extends javax.swing.JFrame {
                 this.dispose();
                 menu.setVisible(true);
                 menu.setLocationRelativeTo(null);
-            } else {    
+            } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!", "Mensagem", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void tgBtnSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tgBtnSenhaActionPerformed
-        if(tgBtnSenha.isSelected()){
-            pssSenha.setEchoChar((char)0);
+        if (tgBtnSenha.isSelected()) {
+            pssSenha.setEchoChar((char) 0);
             tgBtnSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/senhaInvisivel.png")));
-        }
-        else{
+        } else {
             pssSenha.setEchoChar('*');
             tgBtnSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/senhaVisivel.png")));
         }
     }//GEN-LAST:event_tgBtnSenhaActionPerformed
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            pssSenha.requestFocus();
+        }
+    }//GEN-LAST:event_txtUsuarioKeyPressed
+
+    private void pssSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pssSenhaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnEntrar.doClick();
+        }
+    }//GEN-LAST:event_pssSenhaKeyPressed
 
     /**
      * @param args the command line arguments
