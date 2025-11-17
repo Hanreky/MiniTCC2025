@@ -13,6 +13,7 @@ IDCLIENTE INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 NOMECLIENTE  VARCHAR(20) NOT NULL,
 CELCLIENTE  VARCHAR(15) NOT NULL,
 CPFCLIENTE VARCHAR(14) NOT NULL,
+STATUSCLIENTE INT NOT NULL,
 EMAILCLIENTE VARCHAR(50)
 );
 
@@ -23,6 +24,7 @@ USUARIOFUNC VARCHAR(20) NOT NULL,
 NOMEFUNC VARCHAR(20) NOT NULL,
 CELFUNC VARCHAR(15) NOT NULL,
 CPFFUNC VARCHAR(14) NOT NULL,
+STATUSFUNC INT NOT NULL,
 EMAILFUNC VARCHAR(50),
 FOREIGN KEY (USUARIOFUNC) REFERENCES LOGIN (USUARIO)
 );
@@ -42,7 +44,8 @@ FOREIGN KEY (CODCLIENTE) REFERENCES TBCLIENTE (IDCLIENTE)
 CREATE TABLE TBSERVICO(
 IDSERVICO INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 VALORSERV DECIMAL(5,2) NOT NULL ,
-TIPOSERV VARCHAR(30) NOT NULL
+TIPOSERV VARCHAR(30) NOT NULL,
+STATUSERV INT NOT NULL
 );
 
 
@@ -76,37 +79,37 @@ VALUES /*('João','22062009'),
 		 
 		 
 /*TBCLIENTE*/
-INSERT INTO TBCLIENTE(NOMECLIENTE, CELCLIENTE, CPFCLIENTE, EMAILCLIENTE)
+INSERT INTO TBCLIENTE(NOMECLIENTE, CELCLIENTE, CPFCLIENTE, EMAILCLIENTE, STATUSCLIENTE)
 VALUES 
-("Edson","11981704990","26767855839","edson-galvao75@gmail.com"),	
-("Lara","16988459596","34214887644","lara_tereza_baptista@gmail.com"),
-("Renata","11995651112","14497514820","renatateresinhacortereal@outlook.com.br"),
-("Giovana","17993353350","15948700801","giovana_oliveira@gmail.com"),
-("Sykes","9225107257","82522537849","sykes_03@gmail.com"),
-("Luciana","13986323042","48178943859","luciana-bernardes99@gmail.com"),
-("Arthur","11988259668","44894456877","arthur_erick_almeida@outlook.com.br"),
-("Tails","17988259668","93873623266","tails_026@gmail.com"),
-("Bento","12996746981","30432875840","bento_benjamin_monteiro@gmail.com"),
-("Láis","11986807027","56997884849","laisfranciscapires@outlook.com.br"),
-("Marcos","11988776655","12345678900","marcos.silva@hotmail.com"),
-("Juliana","21999887766","23456789011","juliana.rodrigues@gmail.com"),
-("Ricardo","31977665544","34567890122","ricardo.oliveira@outlook.com"),
-("Fernanda","41988554433","45678901233","fernanda.lima@yahoo.com"),
-("Carlos","11999443322","56789012344","carlos.santos@gmail.com");
+("Edson","11981704990","26767855839","edson-galvao75@gmail.com", 1),	
+("Lara","16988459596","34214887644","lara_tereza_baptista@gmail.com", 1),
+("Renata","11995651112","14497514820","renatateresinhacortereal@outlook.com.br", 1),
+("Giovana","17993353350","15948700801","giovana_oliveira@gmail.com", 1),
+("Sykes","9225107257","82522537849","sykes_03@gmail.com", 1),
+("Luciana","13986323042","48178943859","luciana-bernardes99@gmail.com", 1),
+("Arthur","11988259668","44894456877","arthur_erick_almeida@outlook.com.br", 1),
+("Tails","17988259668","93873623266","tails_026@gmail.com", 1),
+("Bento","12996746981","30432875840","bento_benjamin_monteiro@gmail.com", 1),
+("Láis","11986807027","56997884849","laisfranciscapires@outlook.com.br", 1),
+("Marcos","11988776655","12345678900","marcos.silva@hotmail.com", 1),
+("Juliana","21999887766","23456789011","juliana.rodrigues@gmail.com", 1),
+("Ricardo","31977665544","34567890122","ricardo.oliveira@outlook.com", 1),
+("Fernanda","41988554433","45678901233","fernanda.lima@yahoo.com", 1),
+("Carlos","11999443322","56789012344","carlos.santos@gmail.com", 1);
 
 	    
 /*TBFUNCIONARIO*/	    
-INSERT INTO TBFUNCIONARIO(NOMEFUNC, CELFUNC, CPFFUNC, EMAILFUNC, USUARIOFUNC)
-VALUES ("Louise", "11981022175", "65105673859", "louise-dacunha76@gmail.com", "Louise"),	
-	    ("Giovana", "11987947639", "01662029837", "giovana_viana@gmail.com", "Giovana"),
-	    ("Filipe", "1999905-4904", "82069493806", "filipeandersonbarros@outlook.com.br", "Filipe"),
-	    ("Breno", "1199585-4203", "17861758869", "breno_victor_dacruz@gmail.com", "Breno"),
-	    ("Vitória", "1199648-0796", "13756683826", "vitoria_souza@gmail.com", "Vitoria"),
-	    ("Pedro", "1299718-6223", "23594159809", "pedroviniciusfigueiredo@outlook.com.br", "Pedro"),
-	    ("Mário", "1499973-8851", "13796906842", "mario-moreira80@gmail.com", "Mario"),
-	    ("Benedita", "1199215-2591", "15638216804", "beneditaraquelsilva@gmail.com", "Benedita"),
-	    ("Isabelle", "1599992-8256", "02457862876", "isabelleraimundadamata@gmail.com", "Isabelle"),
-	    ("Francisco", "1199352-5020", "53131521813", "francisco_novaes@outlook.com.br", "Francisco");
+INSERT INTO TBFUNCIONARIO(NOMEFUNC, CELFUNC, CPFFUNC, EMAILFUNC, USUARIOFUNC, STATUSFUNC)
+VALUES ("Louise", "11981022175", "65105673859", "louise-dacunha76@gmail.com", "Louise", 1),	
+	    ("Giovana", "11987947639", "01662029837", "giovana_viana@gmail.com", "Giovana", 1),
+	    ("Filipe", "1999905-4904", "82069493806", "filipeandersonbarros@outlook.com.br", "Filipe", 1),
+	    ("Breno", "1199585-4203", "17861758869", "breno_victor_dacruz@gmail.com", "Breno", 1),
+	    ("Vitória", "1199648-0796", "13756683826", "vitoria_souza@gmail.com", "Vitoria", 1),
+	    ("Pedro", "1299718-6223", "23594159809", "pedroviniciusfigueiredo@outlook.com.br", "Pedro", 1),
+	    ("Mário", "1499973-8851", "13796906842", "mario-moreira80@gmail.com", "Mario", 1),
+	    ("Benedita", "1199215-2591", "15638216804", "beneditaraquelsilva@gmail.com", "Benedita", 1),
+	    ("Isabelle", "1599992-8256", "02457862876", "isabelleraimundadamata@gmail.com", "Isabelle", 1),
+	    ("Francisco", "1199352-5020", "53131521813", "francisco_novaes@outlook.com.br", "Francisco", 1);
 	    
 	    
 /*TBPEDIDO*/
@@ -132,17 +135,17 @@ VALUES (1, 2, "17:02:02", "2025/09/15", "Concluido"),
 	    (1, 2, "18:24:53", "2025/09/01", "Cancelado");
 	    
 /*TBSERVICO*/
-INSERT INTO TBSERVICO(VALORSERV, TIPOSERV)
-VALUES (28.00,"Documento de carro"),	
-	    (150.00,"Formatação de Computador"),
-	    (25.00,"Topo de Bolo"),
-	    (20.00,"Adesivos"),
-	    (12.00,"Curriculo"),
-	    (17.00,"Foto 3x4"),
-	    (100.00,"Banner"),
-	    (6.00,"Pasta de Música"),
-	    (1.00,"Xerox"),
-	    (6.00,"Boleto");
+INSERT INTO TBSERVICO(VALORSERV, TIPOSERV, STATUSERV)
+VALUES (28.00,"Documento de carro", 1),	
+	    (150.00,"Formatação de Computador", 1),
+	    (25.00,"Topo de Bolo", 1),
+	    (20.00,"Adesivos", 1),
+	    (12.00,"Curriculo", 1),
+	    (17.00,"Foto 3x4", 1),
+	    (100.00,"Banner", 1),
+	    (6.00,"Pasta de Música", 1),
+	    (1.00,"Xerox", 1),
+	    (6.00,"Boleto", 1);
 	    
 /*TBATENDIMENTO*/
 INSERT INTO TBATENDIMENTO(CODSERVICO,CODPEDIDO, OBSATEND,QTDPROD,PRECOATEND)
