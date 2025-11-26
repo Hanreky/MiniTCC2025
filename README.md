@@ -6,3 +6,6 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 
 # M.E.R. (Desatualizado) //TODO: Atualizar.
 ![A screenshot of the project](./assets/mer.jpg)
+
+# SQL
+[⬇️ Baixar](./)
