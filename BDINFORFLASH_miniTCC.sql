@@ -5,7 +5,8 @@ USE BDINFORFLASH;
 
 CREATE TABLE LOGIN(
 USUARIO VARCHAR(20) PRIMARY KEY,
-SENHA VARCHAR(30)
+SENHA VARCHAR(30),
+STATUSLOGIN INT NOT NULL
 );
 
 CREATE TABLE TBCLIENTE(
@@ -63,54 +64,53 @@ FOREIGN KEY (CODPEDIDO) REFERENCES TBPEDIDO (IDPEDIDO)
 /*INSERINDO DADOS*/
 
 /*TBLOGIN*/
-INSERT INTO LOGIN(USUARIO, SENHA)
-VALUES /*('João','22062009'),
-		 ('Caio','20112008');*/
-		 ('Louise', '123'),
-		 ('Giovana', '123'),
-		 ('Filipe', '123'),
-		 ('Breno', '123'),
-		 ('Vitoria', '123'),
-		 ('Pedro', '123'),
-		 ('Mario', '123'),
-		 ('Benedita', '123'),
-		 ('Isabelle', '123'),
-		 ('Francisco', '123');
+INSERT INTO LOGIN(USUARIO, SENHA, STATUSLOGIN)
+VALUES /*('João','22062009', 1),
+		 ('Caio','20112008', 1);*/
+		 ('Louise', '123', 1),
+		 ('Giovana', '123', 1),
+		 ('Filipe', '123', 1),
+		 ('Breno', '123', 1),
+		 ('Vitoria', '123', 1),
+		 ('Pedro', '123', 1),
+		 ('Mario', '123', 1),
+		 ('Benedita', '123', 1),
+		 ('Isabelle', '123', 1),
+		 ('Francisco', '123', 1);
 		 
 		 
 /*TBCLIENTE*/
 INSERT INTO TBCLIENTE(NOMECLIENTE, CELCLIENTE, CPFCLIENTE, EMAILCLIENTE, STATUSCLIENTE)
 VALUES 
-("Edson","11981704990","26767855839","edson-galvao75@gmail.com", 1),	
-("Lara","16988459596","34214887644","lara_tereza_baptista@gmail.com", 1),
-("Renata","11995651112","14497514820","renatateresinhacortereal@outlook.com.br", 1),
-("Giovana","17993353350","15948700801","giovana_oliveira@gmail.com", 1),
-("Sykes","9225107257","82522537849","sykes_03@gmail.com", 1),
-("Luciana","13986323042","48178943859","luciana-bernardes99@gmail.com", 1),
-("Arthur","11988259668","44894456877","arthur_erick_almeida@outlook.com.br", 1),
-("Tails","17988259668","93873623266","tails_026@gmail.com", 1),
-("Bento","12996746981","30432875840","bento_benjamin_monteiro@gmail.com", 1),
-("Láis","11986807027","56997884849","laisfranciscapires@outlook.com.br", 1),
-("Marcos","11988776655","12345678900","marcos.silva@hotmail.com", 1),
-("Juliana","21999887766","23456789011","juliana.rodrigues@gmail.com", 1),
-("Ricardo","31977665544","34567890122","ricardo.oliveira@outlook.com", 1),
-("Fernanda","41988554433","45678901233","fernanda.lima@yahoo.com", 1),
-("Carlos","11999443322","56789012344","carlos.santos@gmail.com", 1);
+("Edson","(11) 98170-4990","267.678.558-39","edson-galvao75@gmail.com", 1),	
+("Lara","(16) 98845-9596","342.148.876-44","lara_tereza_baptista@gmail.com", 1),
+("Renata","(11) 99565-1112","144.975.148-20","renatateresinhacortereal@outlook.com.br", 1),
+("Giovana","(17) 99335-3350","159.487.008-01","giovana_oliveira@gmail.com", 1),
+("Sykes","(92) 25107-257","825.225.378-49","sykes_03@gmail.com", 1),
+("Luciana","(13) 98632-3042","481.789.438-59","luciana-bernardes99@gmail.com", 1),
+("Arthur","(11) 98825-9668","448.944.568-77","arthur_erick_almeida@outlook.com.br", 1),
+("Tails","(17) 98825-9668","938.736.232-66","tails_026@gmail.com", 1),
+("Bento","(12) 99674-6981","304.328.758-40","bento_benjamin_monteiro@gmail.com", 1),
+("Láis","(11) 98680-7027","569.978.848-49","laisfranciscapires@outlook.com.br", 1),
+("Marcos","(11) 98877-6655","123.456.789-00","marcos.silva@hotmail.com", 1),
+("Juliana","(21) 99988-7766","234.567.890-11","juliana.rodrigues@gmail.com", 1),
+("Ricardo","(31) 97766-5544","345.678.901-22","ricardo.oliveira@outlook.com", 1),
+("Fernanda","(41) 98855-4433","456.789.012-33","fernanda.lima@yahoo.com", 1),
+("Carlos","(11) 99944-3322","567.890.123-44","carlos.santos@gmail.com", 1);
 
 	    
 /*TBFUNCIONARIO*/	    
 INSERT INTO TBFUNCIONARIO(NOMEFUNC, CELFUNC, CPFFUNC, EMAILFUNC, USUARIOFUNC, STATUSFUNC)
-VALUES ("Louise", "11981022175", "65105673859", "louise-dacunha76@gmail.com", "Louise", 1),	
-	    ("Giovana", "11987947639", "01662029837", "giovana_viana@gmail.com", "Giovana", 1),
-	    ("Filipe", "1999905-4904", "82069493806", "filipeandersonbarros@outlook.com.br", "Filipe", 1),
-	    ("Breno", "1199585-4203", "17861758869", "breno_victor_dacruz@gmail.com", "Breno", 1),
-	    ("Vitória", "1199648-0796", "13756683826", "vitoria_souza@gmail.com", "Vitoria", 1),
-	    ("Pedro", "1299718-6223", "23594159809", "pedroviniciusfigueiredo@outlook.com.br", "Pedro", 1),
-	    ("Mário", "1499973-8851", "13796906842", "mario-moreira80@gmail.com", "Mario", 1),
-	    ("Benedita", "1199215-2591", "15638216804", "beneditaraquelsilva@gmail.com", "Benedita", 1),
-	    ("Isabelle", "1599992-8256", "02457862876", "isabelleraimundadamata@gmail.com", "Isabelle", 1),
-	    ("Francisco", "1199352-5020", "53131521813", "francisco_novaes@outlook.com.br", "Francisco", 1);
-	    
+VALUES ("Louise", "(11) 98102-2175", "651.056.738-59", "louise-dacunha76@gmail.com", "Louise", 1),	
+	    ("Giovana", "(11) 98794-7639", "016.620.298-37", "giovana_viana@gmail.com", "Giovana", 1),
+	    ("Filipe", "(19) 99905-4904", "820.694.938-06", "filipeandersonbarros@outlook.com.br", "Filipe", 1),
+	    ("Breno", "(11) 99585-4203", "178.617.588-69", "breno_victor_dacruz@gmail.com", "Breno", 1),
+	    ("Vitória", "(11) 99648-0796", "137.566.838-26", "vitoria_souza@gmail.com", "Vitoria", 1),
+	    ("Pedro", "(12) 99718-6223", "235.941.598-09", "pedroviniciusfigueiredo@outlook.com.br", "Pedro", 1),
+	    ("Mário", "(14) 99973-8851", "137.969.068-42", "mario-moreira80@gmail.com", "Mario", 1),
+	    ("Benedita", "(11) 99215-2591", "156.382.168-04", "beneditaraquelsilva@gmail.com", "Benedita", 1),
+	    ("Isabelle", "(15) 99992-8256", "024.578.628-76", "isabelleraimundadamata@gmail.com", "Isabelle", 1),
+	    ("Francisco", "(11) 99352-5020", "531.315.218-13", "francisco_novaes@outlook.com.br", "Francisco", 1);	    
 	    
 /*TBPEDIDO*/
 
@@ -123,16 +123,16 @@ Concluido
 Cancelado
 */
 INSERT INTO TBPEDIDO(CODFUNCIONARIO, CODCLIENTE, HORAPED, DATAPED, STATUSPED)
-VALUES (1, 2, "17:02:02", "2025/09/15", "Concluido"),	
-	    (1, 3, "12:02:13", "2025/09/03", "Concluido"),
+VALUES (1, 2, "17:02:02", "2025/09/15", "Finalizado"),	
+	    (1, 3, "12:02:13", "2025/09/03", "Finalizado"),
 	    (4, 1, "14:05:26", "2025/09/16", "Cancelado"),
 	    (7, 8, "03:01:54", "2025/09/02", "Em preparação"),
 	    (5, 6, "10:42:53", "2025/09/15", "Cancelado"),
 	    (9, 1, "20:27:44", "2025/09/08", "Aguardando Coleta"),
 	    (2, 4, "04:09:04", "2025/09/18", "Aguardando Coleta"),
 	    (7, 9, "08:33:29", "2025/09/05", "Em preparação"),
-	    (1, 2, "00:50:32", "2025/09/02", "Concluido"),
-	    (1, 2, "18:24:53", "2025/09/01", "Cancelado");
+	    (1, 2, "00:50:32", "2025/09/02", "Finalizado"),
+	    (1, 2, "18:24:53", "2025/09/01", "Finalizado");
 	    
 /*TBSERVICO*/
 INSERT INTO TBSERVICO(VALORSERV, TIPOSERV, STATUSERV)
