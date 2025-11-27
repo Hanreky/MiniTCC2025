@@ -16,10 +16,10 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 [⬇️ Baixar](./BDINFORFLASH_miniTCC.sql) BDINFORFLASH_miniTCC.sql
 
 # Bibliotecas externas/Drivers
-## Mysql
+### Mysql
 [⬇️ Baixar](./InforFlash/mysql-connector-j-9.0.0.jar) mysql-connector-j-9.0.0.jar
 
-## FlatLaf Look and Feel
+### FlatLaf Look and Feel
 [⬇️ Baixar](./InforFlash/flatlaf-demo-3.6.2.jar) flatlaf-demo-3.6.2.jar
 
 
