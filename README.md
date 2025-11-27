@@ -12,7 +12,7 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 ![mer](./assets/mer.jpg)
 
 
-# SQL
+# Banco de Dados (Modelo Físico)
 [⬇️ Baixar](./BDINFORFLASH_miniTCC.sql) BDINFORFLASH_miniTCC.sql
 
 # Bibliotecas externas/Drivers
