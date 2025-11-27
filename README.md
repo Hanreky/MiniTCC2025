@@ -13,7 +13,7 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 
 
 # SQL
-[⬇️ Baixar](./BDINFORFLASH_miniTCC.sql) BDINFORFLASH_miniTCC.sql)
+[⬇️ Baixar](./BDINFORFLASH_miniTCC.sql) BDINFORFLASH_miniTCC.sql
 
 # Bibliotecas externas/Drivers
 ## Mysql
