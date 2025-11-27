@@ -6,11 +6,11 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 
 # M.E.R. (Desatualizado) TODO: Atualizar.
 ![mer](./assets/mer.jpg)
-<br>
+
+
 # SQL
 [⬇️ Baixar](./BDINFORFLASH_miniTCC.sql)
 
-<br>
 # Bibliotecas externas/Drivers
 ## Mysql
 [⬇️ Baixar](./InforFlash/)
