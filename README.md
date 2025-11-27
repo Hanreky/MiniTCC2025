@@ -3,7 +3,7 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 
 
 # Arquivo .JAR (Aplicação)
-## [⬇️ Baixar](./assets/InforFlash.jar) InforFlash.jar
+### [⬇️ Baixar](./assets/InforFlash.jar) InforFlash.jar
 
 # D.E.R. (Desatualizado) TODO: Atualizar.
 ![der](./assets/der.jpg)
