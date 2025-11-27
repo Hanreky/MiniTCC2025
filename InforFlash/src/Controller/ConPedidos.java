@@ -35,8 +35,9 @@ public class ConPedidos {
         Vector lista = new Vector();
         String sql = "SELECT IDPEDIDO, DATAPED, STATUSPED, NOMECLIENTE"
                 + " FROM TBPEDIDO, TBCLIENTE"
-                + " WHERE IDCLIENTE = CODCLIENTE"
-                + " ORDER BY DATAPED ASC";
+                + " WHERE IDCLIENTE = CODCLIENTE";
+        
+                
 
         try {
             PreparedStatement psmt = conexao.conectar().prepareStatement(sql);
@@ -65,6 +66,8 @@ public class ConPedidos {
         return lista;
         
     }
+    
+    
     
     public Pedidos pegarPedido(int codigo) {
         String sql = "SELECT * FROM TBPEDIDO "

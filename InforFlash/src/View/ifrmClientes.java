@@ -629,9 +629,9 @@ public class ifrmClientes extends javax.swing.JInternalFrame {
 
                 JOptionPane.showMessageDialog(null, "Esse cliente já existe. \nClique no botão de limpar para cadastrar um novo cliente.", "Aviso", JOptionPane.WARNING_MESSAGE);
 
-            } else if (conCli.verificarCpf(txtCpf.getText().trim())) {
+            } else if (conCli.verificarCpf(txtCpf.getText().trim()) || !txtObrCpf.getText().isEmpty()) {
 
-                JOptionPane.showMessageDialog(null, "Esse CPF já existe! ", "Aviso", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Esse CPF já existe ou é inválido! ", "Aviso", JOptionPane.WARNING_MESSAGE);
 
             } else if (!conCli.verificarCpf(txtCpf.getText().trim())) {
 

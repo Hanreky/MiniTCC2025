@@ -445,6 +445,8 @@ public class ifrmCadastro extends javax.swing.JInternalFrame {
                     || String.valueOf(pssSenha.getPassword()).trim().isEmpty()
                     || String.valueOf(pssConfirmarSenha.getPassword()).trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha os campos obrigatórios! ", "Aviso", JOptionPane.WARNING_MESSAGE);
+            } else if (!txtObrCpf.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Esse CPF já existe ou é inválido! ", "Aviso", JOptionPane.WARNING_MESSAGE);
             } else {
                 if (String.valueOf(pssSenha.getPassword()).trim().equals(String.valueOf(pssConfirmarSenha.getPassword()).trim())) {
 
@@ -550,7 +552,7 @@ public class ifrmCadastro extends javax.swing.JInternalFrame {
 
             if (conFunc.verificarCpf(txtCpf.getText().trim())) {
                 txtObrCpf.setText("CPF já cadastrado!");
-            } else if (txtCpf.getText().length() != 11 && txtCpf.getText().length() != 14 ) {
+            } else if (txtCpf.getText().length() != 11 && txtCpf.getText().length() != 14) {
                 txtObrCpf.setText("CPF inválido!");
             } else {
                 txtObrCpf.setText("");

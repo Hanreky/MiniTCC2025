@@ -70,7 +70,7 @@ public class ConAtendimentos {
         Vector lista = new Vector();
         String sql = "SELECT TIPOSERV, QTDPROD, PRECOATEND, IDPEDIDO, DATAPED, STATUSPED, NOMECLIENTE "
                 + " FROM TBATENDIMENTO, TBSERVICO, TBPEDIDO, TBCLIENTE "
-                + " WHERE IDSERVICO = CODSERVICO AND IDCLIENTE = CODCLIENTE AND IDPEDIDO = CODPEDIDO AND STATUSPED <> 'Cancelado' "
+                + " WHERE IDSERVICO = CODSERVICO AND IDCLIENTE = CODCLIENTE AND IDPEDIDO = CODPEDIDO AND STATUSPED <> 'Cancelado'"
                 + " ORDER BY STATUSPED ASC";
 
         try {
@@ -110,6 +110,54 @@ public class ConAtendimentos {
         return lista;
 
     }
+    
+    public Vector listarPorCliente(int codigo){
+        Vector lista = new Vector();
+        String sql = "SELECT TIPOSERV, QTDPROD, PRECOATEND, IDPEDIDO, DATAPED, STATUSPED, NOMECLIENTE "
+                + " FROM TBATENDIMENTO, TBSERVICO, TBPEDIDO, TBCLIENTE "
+                + " WHERE IDSERVICO = CODSERVICO AND IDCLIENTE = CODCLIENTE AND IDPEDIDO = CODPEDIDO AND STATUSPED <> 'Cancelado' AND CODCLIENTE = ?"
+                + " ORDER BY STATUSPED ASC";
+
+        try {
+            PreparedStatement psmt = conexao.conectar().prepareStatement(sql);
+            psmt.setInt(1, codigo);
+            ResultSet rs = psmt.executeQuery();
+
+            while (rs.next()) {
+                Atendimentos atendimento = new Atendimentos();
+                Pedidos pedido = new Pedidos();
+
+                atendimento.setTipoServ(rs.getString("TIPOSERV"));
+                atendimento.setQtd(rs.getInt("QTDPROD"));
+                atendimento.setPreco(rs.getFloat("PRECOATEND"));
+
+                pedido.setCodigo(rs.getInt("IDPEDIDO"));
+                pedido.setData(rs.getString("DATAPED"));
+                pedido.setStatus(rs.getString("STATUSPED"));
+                pedido.setNomeCiente(rs.getString("NOMECLIENTE"));
+
+                Vector novaLinha = new Vector();
+
+                novaLinha.addElement(atendimento.getTipoServ());
+                novaLinha.addElement(atendimento.getQtd());
+                
+                novaLinha.addElement(Formatacoes.formatarMoeda(atendimento.getPreco()));
+
+                novaLinha.addElement(pedido.getCodigo());
+                novaLinha.addElement(pedido.getNomeCiente());
+                novaLinha.addElement(pedido.getData());
+                novaLinha.addElement(pedido.getStatus());
+
+                lista.addElement(novaLinha);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return lista;
+    }
+    
+    
+    
 
     public Atendimentos pegarAtendimento(int codigo) {
         String sql = "SELECT * FROM TBATENDIMENTO "

@@ -513,22 +513,33 @@ public class dialogClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_txtNomeKeyPressed
 
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-        int sel = tbClientes.getSelectedRow();
-        TableModel modelo = tbClientes.getModel();
 
-        String cpf = modelo.getValueAt(sel, 2).toString();
-        pesquisarCpf(cpf);
+        if (txtCod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Escolha um cliente! ", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (!txtCod.getText().isEmpty()) {
+                String cpf = txtCpf.getText();
+                pesquisarCpf(cpf);
+            } else {
+                int sel = tbClientes.getSelectedRow();
+                TableModel modelo = tbClientes.getModel();
+                String cpf = modelo.getValueAt(sel, 2).toString();
+                pesquisarCpf(cpf);
+            }
 
-        validar();
-        
-        Clientes cliente = new Clientes();
-        
-        if (cliente.getCodigo() == 0) {
-            clienteLink.setCodigoCliente(Integer.parseInt(txtCod.getText()));
-            clienteLink.setNomeCliente(txtNome.getText());
-            this.setVisible(false);
-            this.dispose();
+            validar();
+
+            Clientes cliente = new Clientes();
+
+            if (cliente.getCodigo() == 0) {
+                clienteLink.setCodigoCliente(Integer.parseInt(txtCod.getText()));
+                clienteLink.setNomeCliente(txtNome.getText());
+                this.setVisible(false);
+                this.dispose();
+            }
         }
+
+       
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     /**

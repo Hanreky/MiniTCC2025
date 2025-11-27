@@ -185,6 +185,8 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
         txtObrCliente = new javax.swing.JLabel();
         txtObrTipo = new javax.swing.JLabel();
         txtObrStatus = new javax.swing.JLabel();
+        btnPesquisarPorCliente = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -439,6 +441,24 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
         txtObrStatus.setForeground(new java.awt.Color(255, 0, 51));
         txtObrStatus.setText("* Obrigatório");
 
+        btnPesquisarPorCliente.setBackground(new java.awt.Color(204, 255, 255));
+        btnPesquisarPorCliente.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
+        btnPesquisarPorCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisar.png"))); // NOI18N
+        btnPesquisarPorCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarPorClienteActionPerformed(evt);
+            }
+        });
+
+        jButton5.setBackground(new java.awt.Color(204, 255, 255));
+        jButton5.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        jButton5.setText("Recarregar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -481,8 +501,10 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
                                         .addGap(46, 46, 46)
                                         .addComponent(jLabel8))
                                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnPesquisarPorCliente)
+                                        .addComponent(jLabel13)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -525,6 +547,10 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
                                 .addComponent(jButton2))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(51, 51, 51))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(343, 343, 343)
+                .addComponent(jButton5)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,7 +572,7 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
                             .addComponent(jLabel8)
                             .addComponent(cbTipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtObrTipo))
-                        .addGap(0, 135, Short.MAX_VALUE))
+                        .addGap(0, 140, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -572,7 +598,10 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
                                             .addComponent(txtObrCliente)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(txtObrStatus))))
+                                        .addComponent(txtObrStatus))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnPesquisarPorCliente))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -589,7 +618,7 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3))))))
-                .addGap(24, 24, 24)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -597,7 +626,9 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
                         .addComponent(btnEditar)
                         .addComponent(btnCancelar)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jButton5)
                 .addContainerGap())
         );
 
@@ -647,11 +678,11 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
 
         txtCli.setText(String.valueOf(clienteLink.getCodigoCliente()));
         txtNomeCli.setText(clienteLink.getNomeCliente());
-        
-        if(!txtNomeCli.getText().isEmpty()){
+
+        if (!txtNomeCli.getText().isEmpty()) {
             txtObrCliente.setText("");
         }
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void cbTiposItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTiposItemStateChanged
@@ -871,11 +902,49 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_cbStatusItemStateChanged
 
+    private void btnPesquisarPorClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPorClienteActionPerformed
+
+        if (txtCli.getText().isEmpty() || Integer.parseInt(txtCli.getText()) == 0) {
+            JOptionPane.showMessageDialog(null, "Selecione um cliente! ", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Vector cabecalho = new Vector();
+            try {
+                cabecalho.addElement("Serviço");
+                cabecalho.addElement("Quantidade");
+                cabecalho.addElement("Valor");
+
+                cabecalho.addElement("Código");
+                cabecalho.addElement("Cliente");
+                cabecalho.addElement("Data");
+                cabecalho.addElement("Status");
+
+                ConPedidos conPedidos = new ConPedidos();
+                ConAtendimentos conAtend = new ConAtendimentos();
+
+                tbPedido.setModel(new DefaultTableModel(conAtend.listarPorCliente(Integer.parseInt(txtCli.getText())), cabecalho) {
+
+                    @Override
+                    public boolean isCellEditable(int row, int column) {
+                        return false;
+                    }
+                });
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro: " + e);
+            }
+
+    }//GEN-LAST:event_btnPesquisarPorClienteActionPerformed
+    }
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        listar();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnPesquisarPorCliente;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbStatus;
     private javax.swing.JComboBox<String> cbTipos;
@@ -883,6 +952,7 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;

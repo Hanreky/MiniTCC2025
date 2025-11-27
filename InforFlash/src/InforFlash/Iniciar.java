@@ -11,11 +11,6 @@ package InforFlash;
  */
 import View.*;
 import com.formdev.flatlaf.*;
-import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
-import java.awt.Cursor;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Toolkit;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
