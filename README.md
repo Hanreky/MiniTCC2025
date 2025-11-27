@@ -1,6 +1,10 @@
 # MiniTCC2025
 Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma MDI (Multiple Document Interface), uma arquitetura onde uma janela principal pode conter e gerenciar múltiplas janelas filhas, bem como o FlatLaf Look and Feel para um design mais moderno e menos metálico.
 
+
+# .JAR
+[⬇️ Baixar](./assets/InforFlash.jar)
+
 # D.E.R. (Desatualizado) TODO: Atualizar.
 ![der](./assets/der.jpg)
 
@@ -18,9 +22,6 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 ## FlatLaf Look and Feel
 [⬇️ Baixar](./InforFlash/flatlaf-demo-3.6.2.jar)
 
-
-# .JAR
-[⬇️ Baixar](./assets/InforFlash.jar)
 
 # Interface
 ![login](./assets/login.png)
