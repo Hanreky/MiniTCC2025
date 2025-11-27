@@ -11,3 +11,4 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 [⬇️ Baixar](./BDINFORFLASH_miniTCC.sql)
 
 # .JAR
+[⬇️ Baixar](./assets/InforFlash.jar)
