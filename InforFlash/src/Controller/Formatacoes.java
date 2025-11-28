@@ -4,6 +4,8 @@
  */
 package Controller;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Locale;
@@ -54,5 +56,13 @@ public class Formatacoes {
     public static String formatarMoeda(float valor) {
         return formatadorReal.format(valor);
     }
+    
+    public static float formatarDecimal(String num) {
+        return Float.parseFloat(num.replace(',', '.'));
+    }
+    
+    public static String formatarDecimal(float num){
+        return String.valueOf(num).replace('.', ',');
+    } 
 
 }

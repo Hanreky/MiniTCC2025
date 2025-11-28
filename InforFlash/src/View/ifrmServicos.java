@@ -4,7 +4,7 @@
  */
 package View;
 
-import Controller.ConServicos;
+import Controller.*;
 import Model.Servicos;
 import java.awt.event.KeyEvent;
 import java.util.Vector;
@@ -36,7 +36,7 @@ public class ifrmServicos extends javax.swing.JInternalFrame {
 
             txtCod.setText(String.valueOf(servico.getCodigo()));
             txtTipoServ.setText(servico.getTipoServ());
-            txtValor.setText(String.valueOf(servico.getValor()));
+            txtValor.setText(Formatacoes.formatarDecimal(servico.getValor()));
 
             if (txtTipoServ.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Serviço não encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
@@ -51,7 +51,7 @@ public class ifrmServicos extends javax.swing.JInternalFrame {
         txtTipoServ.setText("");
         txtValor.setText("");
 
-        //validar();
+        validar();
     }
 
     public void listar() {
@@ -380,8 +380,9 @@ public class ifrmServicos extends javax.swing.JInternalFrame {
                     if (op == JOptionPane.YES_OPTION) {
                         Servicos servico = new Servicos();
                         ConServicos conServico = new ConServicos();
-
-                        servico.setValor(Float.parseFloat(txtValor.getText().trim()));
+                        
+                        String valor = txtValor.getText().trim();
+                        servico.setValor(Formatacoes.formatarDecimal(valor));
                         servico.setTipoServ(txtTipoServ.getText().trim());
 
                         conServico.Cadastrar(servico);
@@ -413,7 +414,9 @@ public class ifrmServicos extends javax.swing.JInternalFrame {
                 if (op == JOptionPane.YES_OPTION) {
                     servico.setCodigo(Integer.parseInt(txtCod.getText()));
                     servico.setTipoServ(txtTipoServ.getText());
-                    servico.setValor(Float.parseFloat(txtValor.getText()));
+                    
+                    String valor = txtValor.getText();
+                    servico.setValor(Formatacoes.formatarDecimal(valor));
                     conservico.editar(servico);
 
                     JOptionPane.showMessageDialog(null, "Serviço " + servico.getTipoServ() + " Atualizado com sucesso!");
