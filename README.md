@@ -3,7 +3,7 @@ Aplicação CRUD em Java realizada como preparação para o TCC, utilizando uma 
 
 # Componentes
 #### [Caio Picelli](https://github.com/Hanreky) 
-#### [João Lucas](https://github.com/joaolucasantmin)
+#### [João Lucas](https://github.com/joaolucasantmin) 
 
 # Arquivo .JAR (Aplicação)
 #### [⬇️ Baixar](./assets/dist.zip) InforFlash.jar
