@@ -49,7 +49,6 @@ public class ifrmLogin extends javax.swing.JInternalFrame {
 
         txtUsuario.setBackground(new java.awt.Color(204, 204, 255));
         txtUsuario.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
-        txtUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyPressed(evt);
@@ -62,7 +61,6 @@ public class ifrmLogin extends javax.swing.JInternalFrame {
 
         pssSenha.setBackground(new java.awt.Color(204, 204, 255));
         pssSenha.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
-        pssSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pssSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 pssSenhaKeyPressed(evt);
@@ -81,7 +79,6 @@ public class ifrmLogin extends javax.swing.JInternalFrame {
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/login.png"))); // NOI18N
         btnEntrar.setText("Entrar");
-        btnEntrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
@@ -164,6 +161,8 @@ public class ifrmLogin extends javax.swing.JInternalFrame {
         } else {
             pssSenha.setEchoChar('*');
             tgBtnSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/senhaVisivel.png")));
+            
+        
         }
     }//GEN-LAST:event_tgBtnSenhaActionPerformed
 

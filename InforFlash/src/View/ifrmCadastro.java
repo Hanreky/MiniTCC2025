@@ -219,6 +219,11 @@ public class ifrmCadastro extends javax.swing.JInternalFrame {
 
         txtEmail.setBackground(new java.awt.Color(204, 204, 255));
         txtEmail.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailFocusGained(evt);
+            }
+        });
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -557,14 +562,11 @@ public class ifrmCadastro extends javax.swing.JInternalFrame {
 
             if (conFunc.verificarCpf(txtCpf.getText().trim())) {
                 txtObrCpf.setText("CPF já cadastrado!");
-                txtCpf.requestFocus();
             } else if (txtCpf.getText().length() != 11 && txtCpf.getText().length() != 14) {
                 txtObrCpf.setText("CPF inválido!");
-                txtCpf.requestFocus();
             } else {
                 txtObrCpf.setText("");
                 txtCpf.setText(Formatacoes.formatarCpf(txtCpf.getText().trim()));
-                txtEmail.requestFocus();
             }
 
         }
@@ -642,6 +644,15 @@ public class ifrmCadastro extends javax.swing.JInternalFrame {
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
+
+    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
+        ConFuncionarios conFunc = new ConFuncionarios();
+
+            if (conFunc.verificarCpf(txtCpf.getText().trim())) {
+                txtObrCpf.setText("CPF já cadastrado!");
+                txtCpf.requestFocus();
+            }
+    }//GEN-LAST:event_txtEmailFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -235,12 +235,14 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
 
         txtHora.setBackground(new java.awt.Color(204, 204, 255));
         txtHora.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtHora.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         jLabel4.setText("Data:");
 
         txtData.setBackground(new java.awt.Color(204, 204, 255));
         txtData.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        txtData.setEnabled(false);
         txtData.setNextFocusableComponent(txtObs);
 
         txtCli.setBackground(new java.awt.Color(204, 204, 255));
@@ -542,8 +544,8 @@ public class ifrmPedidos extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(51, 51, 51))))
