@@ -5,6 +5,7 @@
 package View;
 
 import Controller.ConClientes;
+import Controller.Formatacoes;
 import Model.Clientes;
 import Model.clienteLink;
 import java.awt.event.KeyEvent;
@@ -447,7 +448,15 @@ public class dialogClientes extends javax.swing.JDialog {
         if (txtCpf.getText().trim().isEmpty()) {
             txtObrCpf.setText("* Obrigatório");
         } else {
-            txtObrCpf.setText("");
+
+            if (txtCpf.getText().length() != 11 && txtCpf.getText().length() != 14) {
+                txtObrCpf.setText("CPF inválido!");
+                txtCpf.requestFocus();
+            } else {
+                txtCpf.setText(Formatacoes.formatarCpf(txtCpf.getText().trim()));
+                txtObrCpf.setText("");
+            }
+
         }
     }//GEN-LAST:event_txtCpfFocusLost
 

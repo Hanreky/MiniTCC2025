@@ -206,6 +206,11 @@ public class ifrmCadastro extends javax.swing.JInternalFrame {
                 txtCpfFocusLost(evt);
             }
         });
+        txtCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpfActionPerformed(evt);
+            }
+        });
         txtCpf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCpfKeyPressed(evt);
@@ -552,8 +557,10 @@ public class ifrmCadastro extends javax.swing.JInternalFrame {
 
             if (conFunc.verificarCpf(txtCpf.getText().trim())) {
                 txtObrCpf.setText("CPF já cadastrado!");
+                txtCpf.requestFocus();
             } else if (txtCpf.getText().length() != 11 && txtCpf.getText().length() != 14) {
                 txtObrCpf.setText("CPF inválido!");
+                txtCpf.requestFocus();
             } else {
                 txtObrCpf.setText("");
                 txtCpf.setText(Formatacoes.formatarCpf(txtCpf.getText().trim()));
@@ -631,6 +638,10 @@ public class ifrmCadastro extends javax.swing.JInternalFrame {
             tgBtnConfirmarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/senhaVisivel.png")));
         }
     }//GEN-LAST:event_tgBtnConfirmarSenhaActionPerformed
+
+    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCpfActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
